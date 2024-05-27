@@ -20,7 +20,6 @@ import 'package:first_project/screens/home_module/category_setting_screen.dart';
 import 'package:first_project/screens/home_module/chat_screen.dart';
 import 'package:first_project/screens/home_module/course_screen.dart';
 import 'package:first_project/screens/home_module/dashboard_screen.dart';
-import 'package:first_project/screens/home_module/edit_profile_screen.dart';
 import 'package:first_project/screens/home_module/exercise_screen.dart';
 import 'package:first_project/screens/home_module/faq_screen.dart';
 import 'package:first_project/screens/home_module/history_screen.dart';
