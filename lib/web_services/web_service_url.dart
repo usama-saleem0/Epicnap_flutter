@@ -1,0 +1,17 @@
+const String baseUrl = 'https://epicnap.appssols.com';
+// const String baseUrl = 'http://127.0.0.1:8000';
+const String registerUrl = '$baseUrl/api/register';
+const String loginUrl = '$baseUrl/api/login';
+const String Storetime = '$baseUrl/api/storealarm';
+const String Storebedtime = '$baseUrl/api/storebedtime';
+const String editProfileUrl = '$baseUrl/api/edit_profile';
+const String PaypalUrl = '$baseUrl/api/process-transaction';
+const String PaymentSettings = '$baseUrl/api/influencer_payment';
+const String CategorySettings = '$baseUrl/api/influencer_category';
+const String Paymentadd = '$baseUrl/api/payment_details';
+const String Storesurveynote = '$baseUrl/api/storesurveynotes';
+const String Storeweeklysurvey = '$baseUrl/api/storeweeklysurvey';
+const String deleteusers = '$baseUrl/api/delete';
+const String Storesurvey = '$baseUrl/api/storesurvey';
+const String Storenotification = '$baseUrl/api/storenotification';
+const String Gethistory = '$baseUrl/api/history';
