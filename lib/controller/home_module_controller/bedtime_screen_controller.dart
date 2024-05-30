@@ -241,26 +241,47 @@ class BedTimeScreenController extends GetxController {
 
 
 
-  void initializeNotifications() async {
+  // void initializeNotifications() async {
+  //
+  //   const AndroidInitializationSettings initializationSettingsAndroid =
+  //   AndroidInitializationSettings('@mipmap/ic_launcher');
+  //
+  //   final InitializationSettings initializationSettings =
+  //   InitializationSettings(android: initializationSettingsAndroid);
+  //
+  //
+  //   // await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  //   flutterLocalNotificationsPlugin.initialize(initializationSettings,
+  //       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
+  //
+  //
+  // }
 
+
+  void initializeNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('@mipmap/ic_launcher');
 
-    final InitializationSettings initializationSettings =
-    InitializationSettings(android: initializationSettingsAndroid);
+    // const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+    // DarwinNotificationDetails(threadIdentifier: 'thread_id');
+
+    final DarwinInitializationSettings initializationSettingsIOS =
+    DarwinInitializationSettings(
+        requestAlertPermission: true,
+        requestBadgePermission: true,
+        requestSoundPermission: true,
+        onDidReceiveLocalNotification: (id, title, body, payload) async {
+          // Handle the notification tapped logic here
+        });
 
 
-    // await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    final InitializationSettings initializationSettings = InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+    );
+
     flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
-    // await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-    //
-    //     onSelectNotification: (String? payload) async {
-    //       if (payload == 'stop_music') {
-    //         await audioPlayer.stop();
-    //       }
-    //     });
-
   }
 
   Future<void> showNotification(String title, String body) async {
@@ -296,6 +317,31 @@ class BedTimeScreenController extends GetxController {
   //
   // }
 
+  // void playAlarm(String assetPath) async {
+  //   await audioPlayer.play(UrlSource(assetPath));
+  //
+  //   // Show notification with action button to stop the music
+  //   await flutterLocalNotificationsPlugin.show(
+  //     1,
+  //     'Alarm is playing',
+  //     'Tap to stop the alarm',
+  //     NotificationDetails(
+  //       android: AndroidNotificationDetails(
+  //         'alarm_notification',
+  //         'Alarm Notification',
+  //         importance: Importance.high,
+  //         priority: Priority.high,
+  //         enableVibration: true,
+  //
+  //         playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
+  //       ),
+  //     ),
+  //     payload: 'stop_music', // Use a unique payload to identify the action
+  //   );
+  // }
+
+
+
   void playAlarm(String assetPath) async {
     await audioPlayer.play(UrlSource(assetPath));
 
@@ -314,11 +360,15 @@ class BedTimeScreenController extends GetxController {
 
           playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
         ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
       ),
       payload: 'stop_music', // Use a unique payload to identify the action
     );
   }
-
 
 
   void playtime() async {
@@ -338,6 +388,12 @@ class BedTimeScreenController extends GetxController {
           enableVibration: true,
 
           playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
+        ),
+
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
         ),
       ),
       payload: 'stop_music', // Use a unique payload to identify the action
@@ -364,6 +420,12 @@ class BedTimeScreenController extends GetxController {
 
           playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
         ),
+
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
       ),
       payload: 'stop_music', // Use a unique payload to identify the action
     );
@@ -388,6 +450,11 @@ class BedTimeScreenController extends GetxController {
 
           playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
         ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
       ),
       payload: 'stop_music', // Use a unique payload to identify the action
     );
@@ -411,6 +478,11 @@ class BedTimeScreenController extends GetxController {
           enableVibration: true,
 
           playSound: false, // Disable sound to prevent duplicate sound with audioPlayer
+        ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
         ),
       ),
       payload: 'stop_music', // Use a unique payload to identify the action
@@ -494,6 +566,12 @@ class BedTimeScreenController extends GetxController {
           priority: Priority.high,
           enableVibration: true,
         ),
+
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
       ),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
@@ -560,6 +638,11 @@ class BedTimeScreenController extends GetxController {
           importance: Importance.max,
           priority: Priority.high,
           enableVibration: true,
+        ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
         ),
       ),
       androidAllowWhileIdle: true,
@@ -643,6 +726,13 @@ class BedTimeScreenController extends GetxController {
           priority: Priority.high,
           enableVibration: true,
         ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
+
+
       ),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
@@ -707,6 +797,11 @@ class BedTimeScreenController extends GetxController {
           priority: Priority.high,
           enableVibration: true,
         ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
+        ),
       ),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
@@ -769,6 +864,11 @@ class BedTimeScreenController extends GetxController {
           importance: Importance.max,
           priority: Priority.high,
           enableVibration: true,
+        ),
+        iOS: DarwinNotificationDetails(
+          threadIdentifier: 'thread_id', // Specify a thread identifier for iOS
+          presentSound: true, // Specify to play sound on iOS
+          presentAlert: true, // Specify to show alert on iOS
         ),
       ),
       androidAllowWhileIdle: true,
