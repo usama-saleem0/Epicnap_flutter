@@ -19,7 +19,313 @@ import 'maindashboard_screen.dart';
 
 class ProfileScreen extends GetView<ProfileScreenController>{
   const ProfileScreen({super.key});
-  void _showSleepTrackingModal(BuildContext context) {
+  // void _showSleepTrackingModal(BuildContext context) {
+  //   ProgressDialog progressDialog = ProgressDialog();
+  //   print('sssssss');
+  //   showModalBottomSheet(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //
+  //       return SingleChildScrollView(
+  //         child: Container(
+  //           // height: 800,
+  //
+  //           // height: MediaQuery.of(context).size.height * 2.95,
+  //           width: 400,
+  //           decoration: BoxDecoration(
+  //             color: Colors.black,
+  //
+  //             borderRadius: BorderRadius.only(
+  //               topLeft: Radius.circular(20.0),
+  //               topRight: Radius.circular(20.0),
+  //             ),
+  //           ),
+  //           padding: EdgeInsets.all(20),
+  //           child: Column(
+  //             children: [
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.center,
+  //                 children: [
+  //                   Container(
+  //                     width: 300,
+  //                     child: Text(
+  //                       'Short Warwick-Edinburgh Mental Well-being Scale',
+  //                       textAlign: TextAlign.center,
+  //                       style: TextStyle(
+  //                         fontSize: 18,
+  //                         fontWeight: FontWeight.bold,
+  //                         color: Colors.white,
+  //                       ),
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'How you’ll rate your week?',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //               SizedBox(height: 20,),
+  //
+  //
+  //               Obx(()=>
+  //                   Row(
+  //                     mainAxisAlignment: MainAxisAlignment.start,
+  //                     children: List.generate(5, (index) {
+  //                       return GestureDetector(
+  //                         onTap: () {
+  //                           controller.setRating(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+  //                         },
+  //                         child: Icon(
+  //                           index < controller.selectedStars.value ? Icons.star : Icons.star_border,
+  //                           color: index < controller.selectedStars.value ? Colors.white : Colors.grey,
+  //                           size: 40,
+  //                         ),
+  //                       );
+  //                     }),
+  //                   ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Feeling optimistic about the future',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.optimisticsController,
+  //                   hintText: "I've been feeling optimistic about the future",
+  //                 ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Feeling useful',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.usefulController,
+  //                   hintText: "I've been feeling useful",
+  //                 ),
+  //               ),
+  //
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Feeling relaxed',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.relaxedController,
+  //                   hintText: "I've been feeling relaxed",
+  //                 ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Dealing with problems well',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.problemsController,
+  //                   hintText: "I've been dealing with problems well",
+  //                 ),
+  //               ),
+  //
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Thinking clearly',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.thinkingsController,
+  //                   hintText: "I've been thinking clearly",
+  //                 ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Intraction',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.feelingController,
+  //                   hintText: "I've been feeling close to other people",
+  //                 ),
+  //               ),
+  //
+  //
+  //               SizedBox(height: 20,),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.start,
+  //                 children: [
+  //                   Text(
+  //                     'Own mind about things',
+  //
+  //                     style: TextStyle(
+  //                       fontSize: 16,
+  //                       fontWeight: FontWeight.bold,
+  //                       color: Colors.white,
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //               Padding(
+  //                 padding: const EdgeInsets.only(top: 0),
+  //                 child: CustomTextField(
+  //                   controller: controller.mindsController,
+  //                   hintText: "I've been able to make up my own mind about things",
+  //                 ),
+  //               ),
+  //
+  //
+  //               SizedBox(height: 20,),
+  //
+  //
+  //
+  //
+  //
+  //               SizedBox(height: 20,),
+  //
+  //               Padding(
+  //                 padding: EdgeInsets.only(right: 40, left: 40, top: 0),
+  //                 child: CustomPrimaryButton(
+  //                   buttonText: "Submit",
+  //                   onButtonPressed: () {
+  //                     // controller.getUserMode();
+  //
+  //                   },
+  //                   buttonColor: Color(0xff8650F6),
+  //                 ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //
+  //               GestureDetector(
+  //                 onTap: (){
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: Text(
+  //                   'Skip>',
+  //
+  //                   style: TextStyle(
+  //                     fontSize: 20,
+  //                     fontWeight: FontWeight.bold,
+  //                     color: Color(0xff8650F6),
+  //                   ),
+  //                 ),
+  //               ),
+  //
+  //               SizedBox(height: 20,),
+  //             ],
+  //
+  //             // Add your modal content here
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
+
+  void _showSleepTrackingWeeklyModal(BuildContext context) {
     ProgressDialog progressDialog = ProgressDialog();
     print('sssssss');
     showModalBottomSheet(
@@ -49,7 +355,7 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     Container(
                       width: 300,
                       child: Text(
-                        'Short Warwick-Edinburgh Mental Well-being Scale',
+                        'Well-being evaluation',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
@@ -60,41 +366,86 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     ),
                   ],
                 ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'How you’ll rate your week?',
 
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 300,
+                      child: Text(
+                        'Please fill in this questionnaire each week to evaluate your mental well-being.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 SizedBox(height: 20,),
-
-
-                Obx(()=>
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(5, (index) {
-                        return GestureDetector(
-                          onTap: () {
-                            controller.setRating(index + 1); // Index starts from 0, so add 1 to get the actual rating value
-                          },
-                          child: Icon(
-                            index < controller.selectedStars.value ? Icons.star : Icons.star_border,
-                            color: index < controller.selectedStars.value ? Colors.white : Colors.grey,
-                            size: 40,
-                          ),
-                        );
-                      }),
-                    ),
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       'How you’ll rate your week?',
+                //
+                //       style: TextStyle(
+                //         fontSize: 16,
+                //         fontWeight: FontWeight.bold,
+                //         color: Colors.white,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(height: 20,),
+                //
+                //
+                // Obx(()=>
+                //     // Row(
+                //     //   mainAxisAlignment: MainAxisAlignment.start,
+                //     //   children: List.generate(5, (index) {
+                //     //     return GestureDetector(
+                //     //       onTap: () {
+                //     //         controller.setRating(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                //     //       },
+                //     //       child: Icon(
+                //     //         index < controller.selectedStars.value ? Icons.star : Icons.star_border,
+                //     //         color: index < controller.selectedStars.value ? Colors.white : Colors.grey,
+                //     //         size: 40,
+                //     //       ),
+                //     //     );
+                //     //   }),
+                //     // ),
+                //
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: List.generate(5, (index) {
+                //     return GestureDetector(
+                //       onTap: () {
+                //         controller.setNumber(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                //       },
+                //       child: Container(
+                //         margin: EdgeInsets.all(8.0),
+                //         padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                //         decoration: BoxDecoration(
+                //           color: controller.selectedNumber.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                //           borderRadius: BorderRadius.circular(5.0),
+                //         ),
+                //         child: Text(
+                //           (index + 1).toString(),
+                //           style: TextStyle(
+                //             color: Colors.white,
+                //             fontSize: 16,
+                //           ),
+                //         ),
+                //       ),
+                //     );
+                //   }),
+                // ),
+                // ),
 
                 SizedBox(height: 20,),
 
@@ -122,6 +473,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                   ),
                 ),
 
+                SizedBox(height: 10,),
+
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -147,7 +529,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                   ),
                 ),
 
+                SizedBox(height: 10,),
 
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber2(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber2.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -171,6 +583,38 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     controller: controller.relaxedController,
                     hintText: "I've been feeling relaxed",
                   ),
+                ),
+
+                SizedBox(height: 10,),
+
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber3(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber3.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
                 ),
 
                 SizedBox(height: 20,),
@@ -197,8 +641,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     hintText: "I've been dealing with problems well",
                   ),
                 ),
+                SizedBox(height: 10,),
+
+                Obx(()=>
 
 
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber4(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber4.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -223,7 +696,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     hintText: "I've been thinking clearly",
                   ),
                 ),
+                SizedBox(height: 10,),
 
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber5(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber5.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -249,7 +752,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                   ),
                 ),
 
+                SizedBox(height: 10,),
 
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber6(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber6.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -274,7 +807,37 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                     hintText: "I've been able to make up my own mind about things",
                   ),
                 ),
+                SizedBox(height: 10,),
 
+                Obx(()=>
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(5, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.setNumber7(index + 1); // Index starts from 0, so add 1 to get the actual rating value
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.only(left:8, right:8 , top: 3, bottom: 3),
+                            decoration: BoxDecoration(
+                              color: controller.selectedNumber7.value == index + 1 ? Color(0xFF281f57) : Colors.grey,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                ),
 
                 SizedBox(height: 20,),
 
@@ -289,7 +852,7 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                   child: CustomPrimaryButton(
                     buttonText: "Submit",
                     onButtonPressed: () {
-                      // controller.getUserMode();
+                      controller.getUserModes();
 
                     },
                     buttonColor: Color(0xff8650F6),
@@ -352,7 +915,8 @@ class ProfileScreen extends GetView<ProfileScreenController>{
           SharedPreferences prefs = await SharedPreferences.getInstance();
           String currentTime = DateTime.now().toString();
           await prefs.setString('currentTime', currentTime);
-          _showSleepTrackingModal(context);
+          // _showSleepTrackingModal(context);
+          _showSleepTrackingWeeklyModal(context);
 
 
         }
@@ -900,77 +1464,7 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                               //   ],
                               // ),
 
-                              SizedBox(height: 10,),
 
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      margin: EdgeInsets.only(top: 0, bottom: 0, right: 20, left: 20), // Adjust margin for the paddings
-                                      padding: EdgeInsets.all(10), // Adjust padding for the entire content
-                                      decoration: BoxDecoration(
-                                        color: Color(0xffD8D8D8).withOpacity(0.2), // Set your desired box color
-                                        borderRadius: BorderRadius.circular(10), // Optional: Add border radius
-                                      ),
-                                      child: Column(
-                                        children: [
-
-
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                               controller.deleteUser();
-                                              },
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: <Widget>[
-                                                  Flexible(
-                                                    // padding: const EdgeInsets.only(left: 0.0, top: 0),
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                      children: [
-                                                        Text(
-                                                          'Delete User',
-                                                          style: TextStyle(
-                                                            fontSize: 18,
-                                                            // fontWeight: FontWeight.bold,
-                                                            color: Color(0XffD80D1F),
-                                                          ),
-                                                        ),
-                                              
-                                                        Image.asset(
-                                                          'assets/logout.png',
-                                                          width: 30,
-                                                        ),
-                                                      ],
-                                                    ),
-                                              
-                                              
-                                                  ),
-                                              
-                                              
-                                                  // Add other text widgets or content if needed
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-
-
-
-
-
-
-
-
-                                    ),
-
-                                  ),
-
-                                ],
-                              ),
 
                               SizedBox(height: 10,),
 
@@ -1015,6 +1509,83 @@ class ProfileScreen extends GetView<ProfileScreenController>{
                                                           'assets/logout.png',
                                                           width: 30,
                                                         ),
+                                                      ],
+                                                    ),
+
+
+                                                  ),
+
+
+                                                  // Add other text widgets or content if needed
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+
+
+
+
+
+
+
+                                    ),
+
+                                  ),
+
+                                ],
+                              ),
+
+                              SizedBox(height: 10,),
+
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      margin: EdgeInsets.only(top: 0, bottom: 0, right: 20, left: 20), // Adjust margin for the paddings
+                                      padding: EdgeInsets.all(10), // Adjust padding for the entire content
+                                      decoration: BoxDecoration(
+                                        color: Color(0xffD8D8D8).withOpacity(0.2), // Set your desired box color
+                                        borderRadius: BorderRadius.circular(10), // Optional: Add border radius
+                                      ),
+                                      child: Column(
+                                        children: [
+
+
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                controller.deleteUser();
+                                              },
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: <Widget>[
+                                                  Flexible(
+                                                    // padding: const EdgeInsets.only(left: 0.0, top: 0),
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          'Delete User',
+                                                          style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Color(0XffD80D1F),
+                                                          ),
+                                                        ),
+                                                        Icon(
+                                                          Icons.delete,
+                                                          color: Colors.red,
+                                                          size: 30,
+                                                        )
+
+                                                        // Image.asset(
+                                                        //   'assets/logout.png',
+                                                        //   width: 30,
+                                                        // ),
                                                       ],
                                                     ),
 

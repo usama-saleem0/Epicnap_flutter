@@ -1,4 +1,5 @@
-const String baseUrl = 'https://epicnap.appssols.com';
+// const String baseUrl = 'https://epicnap.appssols.com';
+const String baseUrl = 'https://app.epicnap.com';
 // const String baseUrl = 'http://127.0.0.1:8000';
 const String registerUrl = '$baseUrl/api/register';
 const String loginUrl = '$baseUrl/api/login';

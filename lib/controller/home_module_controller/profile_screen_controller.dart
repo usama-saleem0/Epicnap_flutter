@@ -185,4 +185,42 @@ class ProfileScreenController  extends GetxController{
     }
   }
 
+
+
+  Future<void> getUserModes() async{
+    progressDialog.showDialog();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? userId = prefs.getInt('userId');
+    print(userId);
+
+    if (userId != null ) {
+      String res = await userServices.saveweeklysurvey(optimistics: optimisticsController.text,
+          useful: usefulController.text,
+          relaxed: relaxedController.text,
+          problems: problemsController.text,
+          thinkings: thinkingsController.text,
+          people: feelingController.text,
+          minds: mindsController.text,
+          number1:selectedNumber.value,
+          number2:selectedNumber2.value,
+          number3:selectedNumber3.value,
+          number4:selectedNumber4.value,
+          number5:selectedNumber5.value,
+          number6:selectedNumber6.value,
+          number7:selectedNumber7.value,
+
+          user_id:userId);
+      if (res == "successful") {
+        progressDialog.dismissDialog();
+        Get.back();
+      }
+      else {
+        progressDialog.dismissDialog();
+      }
+    }
+    else{
+      progressDialog.dismissDialog();
+    }
+  }
+
 }
